@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class ViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
@@ -62,6 +63,8 @@ class ViewController: UIViewController {
         
         return button
     }()
+    
+    private var contacts: [Contact] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +73,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchContact()
     }
 }
 
@@ -78,7 +82,7 @@ extension ViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 5
+        return contacts.count
     }
     
     func collectionView(
@@ -90,7 +94,9 @@ extension ViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.setupCell()
+        let contact = contacts[indexPath.row]
+    
+        cell.setupCell(contact: contact)
         
         return cell
     }
@@ -140,7 +146,36 @@ private extension ViewController {
     
     @objc
     func addPersonContact() {
-        print("didTapAddPersonContant button")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Contact", in: context) else { return }
+        
+        let person = NSManagedObject(entity: entity, insertInto: context)
+        
+        let david = Person(name: "Davidyoon", phoneNumber: "010-5136-3842", shortcutNumber: 1)
+        person.setValue(david.name, forKey: "name")
+        person.setValue(david.phoneNumber, forKey: "phoneNumber")
+        person.setValue(david.shortcutNumber, forKey: "shortcutNumber")
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
+    func fetchContact() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let content = appDelegate.persistentContainer.viewContext
+        
+        do {
+            contacts = try content.fetch(Contact.fetchRequest()) as! [Contact]
+            contacts.forEach {
+                print($0.name ?? "")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

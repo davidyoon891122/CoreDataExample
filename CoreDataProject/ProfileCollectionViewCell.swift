@@ -74,7 +74,15 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    func setupCell() {
+    func setupCell(contact: Contact) {
+        if let name = contact.name {
+            nameLabel.text = name
+        }
+        
+        if let phoneNumber = contact.phoneNumber {
+            phoneNumberLabel.text = phoneNumber
+        }
+        
         setupViews()
     }
 }
