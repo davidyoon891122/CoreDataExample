@@ -12,10 +12,13 @@
 		495A53B7293D65DE00CD8680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A53B6293D65DE00CD8680 /* SceneDelegate.swift */; };
 		495A53B9293D65DE00CD8680 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A53B8293D65DE00CD8680 /* ViewController.swift */; };
 		495A53BC293D65DE00CD8680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495A53BA293D65DE00CD8680 /* Main.storyboard */; };
-		495A53BF293D65DE00CD8680 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 495A53BD293D65DE00CD8680 /* CoreDataProject.xcdatamodeld */; };
+		495A53BF293D65DE00CD8680 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 495A53BD293D65DE00CD8680 /* Model.xcdatamodeld */; };
 		495A53C1293D65E000CD8680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495A53C0293D65E000CD8680 /* Assets.xcassets */; };
 		495A53C4293D65E000CD8680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495A53C2293D65E000CD8680 /* LaunchScreen.storyboard */; };
 		495A53CD293D6AEF00CD8680 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 495A53CC293D6AEF00CD8680 /* SnapKit */; };
+		49F17E10293ECFB900A8A64E /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */; };
+		49F17E11293ECFB900A8A64E /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */; };
+		49F17E13293ECFDD00A8A64E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E12293ECFDD00A8A64E /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		495A53C0293D65E000CD8680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495A53C3293D65E000CD8680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495A53C5293D65E000CD8680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49F17E12293ECFDD00A8A64E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,8 @@
 		495A53A8293D65DE00CD8680 = {
 			isa = PBXGroup;
 			children = (
+				49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */,
+				49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */,
 				495A53B3293D65DE00CD8680 /* CoreDataProject */,
 				495A53B2293D65DE00CD8680 /* Products */,
 			);
@@ -69,8 +77,9 @@
 				495A53C0293D65E000CD8680 /* Assets.xcassets */,
 				495A53C2293D65E000CD8680 /* LaunchScreen.storyboard */,
 				495A53C5293D65E000CD8680 /* Info.plist */,
-				495A53BD293D65DE00CD8680 /* CoreDataProject.xcdatamodeld */,
+				495A53BD293D65DE00CD8680 /* Model.xcdatamodeld */,
 				49139F6A293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift */,
+				49F17E12293ECFDD00A8A64E /* Person.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -154,8 +163,11 @@
 			files = (
 				495A53B9293D65DE00CD8680 /* ViewController.swift in Sources */,
 				495A53B5293D65DE00CD8680 /* AppDelegate.swift in Sources */,
-				495A53BF293D65DE00CD8680 /* CoreDataProject.xcdatamodeld in Sources */,
+				49F17E11293ECFB900A8A64E /* Contact+CoreDataProperties.swift in Sources */,
+				495A53BF293D65DE00CD8680 /* Model.xcdatamodeld in Sources */,
 				495A53B7293D65DE00CD8680 /* SceneDelegate.swift in Sources */,
+				49F17E10293ECFB900A8A64E /* Contact+CoreDataClass.swift in Sources */,
+				49F17E13293ECFDD00A8A64E /* Person.swift in Sources */,
 				49139F6B293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,13 +407,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		495A53BD293D65DE00CD8680 /* CoreDataProject.xcdatamodeld */ = {
+		495A53BD293D65DE00CD8680 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				495A53BE293D65DE00CD8680 /* CoreDataProject.xcdatamodel */,
 			);
 			currentVersion = 495A53BE293D65DE00CD8680 /* CoreDataProject.xcdatamodel */;
-			path = CoreDataProject.xcdatamodeld;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -34,6 +34,34 @@ class ViewController: UIViewController {
         
         return collectionView
     }()
+    
+    private lazy var createButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 4.0
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 1.0
+        
+        var config = UIButton.Configuration.plain()
+        config.titlePadding = 8.0
+        
+        button.configuration = config
+        
+        button.setTitle(
+            "Create",
+            for: .normal
+        )
+        
+        button.setTitleColor(.label, for: .normal)
+        button.setTitleColor(.lightGray, for: .highlighted)
+        
+        button.addTarget(
+            self,
+            action: #selector(addPersonContact),
+            for: .touchUpInside
+        )
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +85,10 @@ extension ViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ProfileCollectionViewCell.identifier,
+            for: indexPath
+        ) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
         
         cell.setupCell()
         
@@ -66,7 +97,11 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         CGSize(width: collectionView.frame.width, height: 82.0)
     }
 }
@@ -75,6 +110,7 @@ private extension ViewController {
     func setupViews() {
         [
             titleLabel,
+            createButton,
             collectionView
         ]
             .forEach {
@@ -84,17 +120,27 @@ private extension ViewController {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalTo(createButton.snp.leading).offset(-16.0)
+            $0.height.equalTo(35.0)
+        }
+        
+        createButton.snp.makeConstraints {
+            $0.centerY.equalTo(titleLabel)
+            $0.trailing.equalToSuperview().offset(-16.0)
+            $0.height.equalTo(35.0)
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16.0)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
-    
+    @objc
+    func addPersonContact() {
+        print("didTapAddPersonContant button")
+    }
     
 }

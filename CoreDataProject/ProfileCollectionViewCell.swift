@@ -60,6 +60,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(profileImageView.snp.trailing).offset(offset)
             $0.trailing.equalToSuperview().offset(-offset)
         }
+        
         nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         phoneNumberLabel.snp.makeConstraints {
