@@ -9,58 +9,44 @@ import UIKit
 import SnapKit
 
 final class AddViewController: UIViewController {
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Name"
-        label.font = .systemFont(ofSize: 16.0, weight: .bold)
-        label.textColor = .label
-        
-        return label
-    }()
+    private lazy var nameInputView = InputView(titleName: "Name", placeHolderText: "Please write your name")
     
-    private lazy var nameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Please write your name"
-        textField.textColor = .label
-        
-        return textField
-    }()
+    private lazy var phoneNumberInputView = InputView(titleName: "PhoneNumber", placeHolderText: "Please write your PhoneNumber")
     
-    private lazy var nameView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .secondarySystemBackground
-        view.layer.cornerRadius = 8.0
-        [
-            nameLabel,
-            nameTextField
-        ]
-            .forEach {
-                view.addSubview($0)
-            }
+    private lazy var addButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Confirm", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.setTitleColor(.gray.withAlphaComponent(0.3), for: .highlighted)
         
-        let offset:CGFloat = 16.0
-        nameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(offset)
-            $0.bottom.equalToSuperview()
-        }
+        var config = UIButton.Configuration.plain()
+        config.titlePadding = 8.0
         
-        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        button.configuration = config
         
-        nameTextField.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalTo(nameLabel.snp.trailing).offset(8.0)
-            $0.bottom.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-offset)
-        }
+        button.addTarget(
+            self,
+            action: #selector(didTapAddButton),
+            for: .touchUpInside
+        )
         
-        return view
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 8.0
+        
+        return button
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    override func touchesBegan(
+        _ touches: Set<UITouch>,
+        with event: UIEvent?
+    ) {
+        view.endEditing(true)
     }
 }
 
@@ -68,18 +54,40 @@ private extension AddViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
         [
-            nameView
+            nameInputView,
+            phoneNumberInputView,
+            addButton
         ]
             .forEach {
                 view.addSubview($0)
             }
         
         let offset: CGFloat = 16.0
-        nameView.snp.makeConstraints {
+        
+        nameInputView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(64.0)
             $0.leading.equalToSuperview().offset(offset)
             $0.trailing.equalToSuperview().offset(-offset)
             $0.height.equalTo(50.0)
         }
+        
+        phoneNumberInputView.snp.makeConstraints {
+            $0.top.equalTo(nameInputView.snp.bottom).offset(offset)
+            $0.leading.equalToSuperview().offset(offset)
+            $0.trailing.equalToSuperview().offset(-offset)
+            $0.height.equalTo(50.0)
+        }
+        
+        addButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-offset * 2)
+            $0.leading.equalToSuperview().offset(offset * 2)
+            $0.trailing.equalToSuperview().offset(-offset * 2)
+            $0.height.equalTo(50.0)
+        }
+    }
+    
+    @objc
+    func didTapAddButton() {
+        print("didTapAddButton")
     }
 }
