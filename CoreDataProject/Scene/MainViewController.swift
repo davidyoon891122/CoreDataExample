@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  CoreDataProject
 //
 //  Created by jiwon Yoon on 2022/12/05.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import CoreData
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "CoreData"
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -102,7 +102,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -112,7 +112,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private extension ViewController {
+private extension MainViewController {
     func setupViews() {
         [
             titleLabel,
@@ -146,23 +146,8 @@ private extension ViewController {
     
     @objc
     func addPersonContact() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "Contact", in: context) else { return }
-        
-        let person = NSManagedObject(entity: entity, insertInto: context)
-        
-        let david = Person(name: "Davidyoon", phoneNumber: "010-5136-3842", shortcutNumber: 1)
-        person.setValue(david.name, forKey: "name")
-        person.setValue(david.phoneNumber, forKey: "phoneNumber")
-        person.setValue(david.shortcutNumber, forKey: "shortcutNumber")
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        let addViewController = AddViewController()
+        present(addViewController, animated: true)
     }
     
     func fetchContact() {
