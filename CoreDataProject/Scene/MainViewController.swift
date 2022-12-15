@@ -151,11 +151,11 @@ private extension MainViewController {
     }
     
     func fetchContact() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let content = appDelegate.persistentContainer.viewContext
         
         do {
-            contacts = try content.fetch(Contact.fetchRequest()) as! [Contact]
+            contacts = try content.fetch(Contact.fetchRequest()) as [Contact]
             contacts.forEach {
                 print($0.name ?? "")
             }

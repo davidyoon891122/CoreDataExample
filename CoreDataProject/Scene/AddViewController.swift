@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 final class AddViewController: UIViewController {
     private lazy var nameInputView = InputView(titleName: "Name", placeHolderText: "Please write your name")
@@ -89,5 +90,27 @@ private extension AddViewController {
     @objc
     func didTapAddButton() {
         print("didTapAddButton")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Contact", in: context)
+        
+        guard let name = nameInputView.getTextFromLabel(),
+              let phoneNumber = phoneNumberInputView.getTextFromLabel()
+        else { return }
+        
+        if let entity = entity {
+            let contact = NSManagedObject(entity: entity, insertInto: context)
+            contact.setValue(name, forKey: "name")
+            contact.setValue(phoneNumber, forKey: "phoneNumber")
+            contact.setValue(2, forKey: "shortcutNumber")
+            
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+
     }
 }
