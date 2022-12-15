@@ -113,6 +113,10 @@ private extension AddViewController {
             do {
                 try context.save()
                 delegate?.fetchCoreData()
+                self.view.showToastMessage(
+                    message: "\(name) 값이 저장되었어요 😇",
+                    font: .systemFont(ofSize: 15.0)
+                )
             } catch {
                 print(error.localizedDescription)
             }

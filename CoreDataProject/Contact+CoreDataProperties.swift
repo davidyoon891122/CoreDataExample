@@ -2,7 +2,7 @@
 //  Contact+CoreDataProperties.swift
 //  CoreDataProject
 //
-//  Created by jiwon Yoon on 2022/12/06.
+//  Created by jiwon Yoon on 2022/12/15.
 //
 //
 

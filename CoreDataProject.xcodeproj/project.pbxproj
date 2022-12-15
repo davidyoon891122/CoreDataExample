@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		49139F6B293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49139F6A293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift */; };
+		494D763A294AF307009CE8E6 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D7639294AF307009CE8E6 /* Extension+UIView.swift */; };
+		494D763E294AF3C6009CE8E6 /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D763C294AF3C6009CE8E6 /* Contact+CoreDataClass.swift */; };
+		494D763F294AF3C6009CE8E6 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D763D294AF3C6009CE8E6 /* Contact+CoreDataProperties.swift */; };
 		495A53B5293D65DE00CD8680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A53B4293D65DE00CD8680 /* AppDelegate.swift */; };
 		495A53B7293D65DE00CD8680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A53B6293D65DE00CD8680 /* SceneDelegate.swift */; };
 		495A53B9293D65DE00CD8680 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A53B8293D65DE00CD8680 /* MainViewController.swift */; };
@@ -17,13 +20,13 @@
 		495A53CD293D6AEF00CD8680 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 495A53CC293D6AEF00CD8680 /* SnapKit */; };
 		4983F6BB293FF92D00A2B629 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983F6BA293FF92D00A2B629 /* AddViewController.swift */; };
 		4983F6BF293FFD4B00A2B629 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983F6BE293FFD4B00A2B629 /* InputView.swift */; };
-		49F17E10293ECFB900A8A64E /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */; };
-		49F17E11293ECFB900A8A64E /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */; };
-		49F17E13293ECFDD00A8A64E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F17E12293ECFDD00A8A64E /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		49139F6A293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		494D7639294AF307009CE8E6 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		494D763C294AF3C6009CE8E6 /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Contact+CoreDataClass.swift"; path = "CoreDataProject/Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		494D763D294AF3C6009CE8E6 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Contact+CoreDataProperties.swift"; path = "CoreDataProject/Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		495A53B1293D65DE00CD8680 /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495A53B4293D65DE00CD8680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495A53B6293D65DE00CD8680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,9 +37,6 @@
 		495A53C5293D65E000CD8680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4983F6BA293FF92D00A2B629 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		4983F6BE293FFD4B00A2B629 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
-		49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		49F17E12293ECFDD00A8A64E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +51,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494D763B294AF34E009CE8E6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				494D7639294AF307009CE8E6 /* Extension+UIView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		495A53A8293D65DE00CD8680 = {
 			isa = PBXGroup;
 			children = (
-				49F17E0E293ECFB900A8A64E /* Contact+CoreDataClass.swift */,
-				49F17E0F293ECFB900A8A64E /* Contact+CoreDataProperties.swift */,
+				494D763C294AF3C6009CE8E6 /* Contact+CoreDataClass.swift */,
+				494D763D294AF3C6009CE8E6 /* Contact+CoreDataProperties.swift */,
 				495A53B3293D65DE00CD8680 /* CoreDataProject */,
 				495A53B2293D65DE00CD8680 /* Products */,
 			);
@@ -74,11 +82,11 @@
 			children = (
 				4983F6BD293FFC4200A2B629 /* Delegate */,
 				4983F6BC293FFC3800A2B629 /* Scene */,
+				494D763B294AF34E009CE8E6 /* Extension */,
 				495A53C0293D65E000CD8680 /* Assets.xcassets */,
 				495A53C2293D65E000CD8680 /* LaunchScreen.storyboard */,
 				495A53C5293D65E000CD8680 /* Info.plist */,
 				495A53BD293D65DE00CD8680 /* Model.xcdatamodeld */,
-				49F17E12293ECFDD00A8A64E /* Person.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -183,11 +191,11 @@
 				4983F6BF293FFD4B00A2B629 /* InputView.swift in Sources */,
 				495A53B5293D65DE00CD8680 /* AppDelegate.swift in Sources */,
 				4983F6BB293FF92D00A2B629 /* AddViewController.swift in Sources */,
-				49F17E11293ECFB900A8A64E /* Contact+CoreDataProperties.swift in Sources */,
+				494D763E294AF3C6009CE8E6 /* Contact+CoreDataClass.swift in Sources */,
 				495A53BF293D65DE00CD8680 /* Model.xcdatamodeld in Sources */,
+				494D763A294AF307009CE8E6 /* Extension+UIView.swift in Sources */,
 				495A53B7293D65DE00CD8680 /* SceneDelegate.swift in Sources */,
-				49F17E10293ECFB900A8A64E /* Contact+CoreDataClass.swift in Sources */,
-				49F17E13293ECFDD00A8A64E /* Person.swift in Sources */,
+				494D763F294AF3C6009CE8E6 /* Contact+CoreDataProperties.swift in Sources */,
 				49139F6B293EAE2D00A3AB10 /* ProfileCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
