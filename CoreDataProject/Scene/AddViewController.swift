@@ -9,10 +9,16 @@ import UIKit
 import SnapKit
 import CoreData
 
+protocol AddViewProtocol: NSObject {
+    func fetchCoreData()
+}
+
 final class AddViewController: UIViewController {
     private lazy var nameInputView = InputView(titleName: "Name", placeHolderText: "Please write your name")
     
     private lazy var phoneNumberInputView = InputView(titleName: "PhoneNumber", placeHolderText: "Please write your PhoneNumber")
+    
+    weak var delegate: AddViewProtocol?
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
@@ -106,6 +112,7 @@ private extension AddViewController {
             
             do {
                 try context.save()
+                delegate?.fetchCoreData()
             } catch {
                 print(error.localizedDescription)
             }

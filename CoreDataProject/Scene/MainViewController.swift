@@ -112,6 +112,13 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension MainViewController: AddViewProtocol {
+    func fetchCoreData() {
+        fetchContact()
+        self.collectionView.reloadData()
+    }
+}
+
 private extension MainViewController {
     func setupViews() {
         [
@@ -147,6 +154,9 @@ private extension MainViewController {
     @objc
     func addPersonContact() {
         let addViewController = AddViewController()
+        
+        addViewController.delegate = self
+        
         present(addViewController, animated: true)
     }
     
